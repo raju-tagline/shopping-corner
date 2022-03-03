@@ -9,6 +9,9 @@ import { BackButtonComponent } from 'src/app/core/back-button/back-button.compon
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    BackButtonComponent
   ]
 })
 export class CoreModule { }
