@@ -1,1 +1,31 @@
-<p>user-login works!</p>
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <form [formGroup]="myLoginForm" (ngSubmit)="onSubmit()">
+                    <div>
+                        <label for="email" class="label-text">Email</label>
+                        <input type="text" class="form-control" formControlName="email" id="email">
+                        <div *ngIf="!myLoginForm.get('email')?.valid && myLoginForm.get('email')?.touched">
+                            <small class="text-danger">Name is required</small>
+                        </div>
+                    </div>
+                    <div class=" mt-3">
+                        <label for="password" class="label-text">Password</label>
+                        <input type="password" class="form-control" formControlName="password" id="password">
+                        <div *ngIf=" myLoginForm.get('password')?.touched && !myLoginForm.get('password')?.valid">
+                            <small class="text-danger">Please Enter Valid Password</small>
+                        </div>
+
+                    </div>
+                    <div class="mt-3">
+                        <button type="submit" [disabled]="!myLoginForm.valid"
+                            class="btn btn-success col-3">Login</button>
+                        <a routerLink="" class="text-danger ms-5"><span>Or create account with {{ websiteName
+                                }}</span></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
