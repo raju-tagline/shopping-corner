@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 import { AdminRoutingModule } from 'src/app/features/admin/admin-routing.module';
 
 
@@ -8,7 +8,8 @@ import { AdminRoutingModule } from 'src/app/features/admin/admin-routing.module'
   declarations: [],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule
   ]
 })
 export class AdminModule { }
