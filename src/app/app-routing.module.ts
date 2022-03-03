@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'users',
+    path: 'user',
     loadChildren: () =>
       import('./feature/user/user.module').then((m) => m.UserModule),
   },
@@ -20,6 +20,10 @@ const routes: Routes = [
       import('./feature/admin/admin.module').then(
         (m) => m.AdminModule
       ),
+  },
+  {
+    path: '**',
+    redirectTo:'user'
   },
 ];
 
