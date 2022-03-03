@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'shopping-corner-back-button',
@@ -6,11 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./back-button.component.scss'],
 })
 export class BackButtonComponent implements OnInit {
+  @Input() buttonText?: string = 'Go Back';
+
   constructor() {}
 
   ngOnInit(): void {}
 
-  public previous(): void{
+  public previousPage(): void {
     history.back();
   }
 }
