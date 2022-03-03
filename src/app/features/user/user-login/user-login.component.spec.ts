@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserLoginComponent } from './user-login.component';
+import { UserLoginComponent } from 'src/app/features/user/user-login/user-login.component';
 
 describe('UserLoginComponent', () => {
   let component: UserLoginComponent;

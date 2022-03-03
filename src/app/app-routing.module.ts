@@ -5,19 +5,19 @@ const routes: Routes = [
   {
     path: 'user',
     loadChildren: () =>
-      import('./feature/user/user.module').then((m) => m.UserModule),
+      import('./features/user/user.module').then((m) => m.UserModule),
   },
   {
     path: 'customer',
     loadChildren: () =>
-      import('./feature/customer/customer.module').then(
+      import('./features/customer/customer.module').then(
         (m) => m.CustomerModule
       ),
   },
   {
     path: 'customer',
     loadChildren: () =>
-      import('./feature/admin/admin.module').then(
+      import('./features/admin/admin.module').then(
         (m) => m.AdminModule
       ),
   },

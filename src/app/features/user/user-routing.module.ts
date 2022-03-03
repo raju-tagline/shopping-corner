@@ -1,4 +1,4 @@
-import { UserLoginComponent } from 'src/app/feature/user/user-login/user-login.component';
+import { UserLoginComponent } from 'src/app/features/user/user-login/user-login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
