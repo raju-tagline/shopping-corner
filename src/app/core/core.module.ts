@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { CoreRoutingModule } from './core-routing.module';
+import { BackButtonComponent } from './back-button/back-button.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    BackButtonComponent
+  ],
   imports: [
-    CommonModule,
-    CoreRoutingModule
+    CommonModule
   ]
 })
 export class CoreModule { }
