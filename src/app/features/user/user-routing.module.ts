@@ -1,4 +1,4 @@
-import { UserSignUpComponent } from 'src/app/features/user/user-sign-up/user-sign-up.component';
+import { UserSignupComponent } from 'src/app/features/user/user-signup/user-signup.component';
 import { UserLoginComponent } from 'src/app/features/user/user-login/user-login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,8 +9,8 @@ const routes: Routes = [
     component: UserLoginComponent,
   },
   {
-    path: 'signUp',
-    component: UserSignUpComponent,
+    path: 'signup',
+    component: UserSignupComponent,
   },
   {
     path: '**',
@@ -20,6 +20,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class UserRoutingModule { }
+export class UserRoutingModule {}
