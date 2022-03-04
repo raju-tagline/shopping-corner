@@ -1,3 +1,4 @@
+import { BooksComponent } from 'src/app/features/customer/books/books.component';
 import { DealsComponent } from 'src/app/features/customer/deals/deals.component';
 import { DashboardComponent } from 'src/app/features/customer/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
@@ -10,7 +11,11 @@ const routes: Routes = [
   },
   {
     path: 'deal',
-    component:DealsComponent,
+    component: DealsComponent,
+  },
+  {
+    path: 'books',
+    component: BooksComponent,
   },
   {
     path: '**',
