@@ -7,7 +7,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./user-login.component.scss'],
 })
 export class UserLoginComponent implements OnInit {
-  @Input() public websiteName?:string = 'Shopping Corner'
+  @Input() public websiteName?: string = 'Shopping Corner';
   public myLoginForm!: FormGroup;
 
   constructor() {}
