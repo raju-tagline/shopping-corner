@@ -8,6 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class UserLoginComponent implements OnInit {
   @Input() public websiteName?: string = 'Shopping Corner';
+  @Input() public login?: string = 'Login';
   public myLoginForm!: FormGroup;
 
   constructor() {}
