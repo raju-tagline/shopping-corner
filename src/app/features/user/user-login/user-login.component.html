@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-5">
     <div class="col-12">
         <div class="row justify-content-center">
             <div class="col-4">
@@ -7,7 +7,7 @@
                         <label for="email" class="label-text">Email</label>
                         <input type="text" class="form-control" formControlName="email" id="email">
                         <div *ngIf="!myLoginForm.get('email')?.valid && myLoginForm.get('email')?.touched">
-                            <small class="text-danger">Name is required</small>
+                            <small class="text-danger">Email is required</small>
                         </div>
                     </div>
                     <div class=" mt-3">

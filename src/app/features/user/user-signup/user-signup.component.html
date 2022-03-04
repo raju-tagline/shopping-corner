@@ -1,1 +1,51 @@
-<p>user-signup works!</p>
+<div class="row justify-content-center mt-5">
+    <div class="col-12">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <form [formGroup]="mySignUpForm" (ngSubmit)="onSubmi()">
+                    <div>
+                        <label for="name" class="label-text">Full Name</label>
+                        <input type="text" class="form-control" formControlName="name" id="name" >
+                        <div *ngIf="!mySignUpForm.get('name')?.valid && mySignUpForm.get('name')?.touched">
+                            <small class="text-danger">Name is required</small>
+                        </div>
+                    </div>
+                    <div class="mt-2" *ngFor="let gender of genders">
+                        <input type="radio" id="{{ gender.id }}" formControlName="gender"
+                            value="{{ gender.genderType }}">&nbsp;
+                        <label for="{{ gender.id }}" class="ms-2">{{ gender.genderType }}</label>
+                        <div *ngIf="!mySignUpForm.get('gender')?.valid && mySignUpForm.get('gender')?.touched">
+                            <small class="text-danger">Please select any of two!</small>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <label for="email" class="label-text">Email</label>
+                        <input type="text" class="form-control" formControlName="email" id="email">
+                        <div *ngIf="!mySignUpForm.get('email')?.valid && mySignUpForm.get('email')?.touched">
+                            <small class="text-danger">Email is required</small>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <label for="password" class="label-text">Password</label>
+                        <input type="password" class="form-control" formControlName="password" id="password">
+                        <div *ngIf=" mySignUpForm.get('password')?.touched && !mySignUpForm.get('password')?.valid">
+                            <small class="text-danger">Please Enter Valid Password</small>
+                        </div>
+                    </div>
+                    <!-- <div class="mt-2">
+                        <label for="confirmPassword" class="label-text">Confirm Password</label>
+                        <input type="confirmPassword" class="form-control" formControlName="confirmPassword" id="confirmPassword">
+                        <div *ngIf=" mySignUpForm.get('confirmPassword')?.touched && !mySignUpForm.get('confirmPassword')?.valid">
+                            <small class="text-danger">Please Enter Valid Password</small>
+                        </div>
+                    </div> -->
+                    <div class="mt-3">
+                        <button type="submit" [disabled]="!mySignUpForm.valid" class="btn btn-login btn-success">
+                            Sign Up
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
