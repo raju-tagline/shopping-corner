@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BackButtonComponent } from 'src/app/core/back-button/back-button.component';
@@ -6,7 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [BackButtonComponent, HeaderComponent, FooterComponent],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   exports: [BackButtonComponent, HeaderComponent, FooterComponent],
 })
 export class CoreModule {}

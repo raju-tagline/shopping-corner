@@ -1,10 +1,15 @@
 .profile-image {
   height: 30px;
-  margin-right: 25px; 
+  margin-right: 25px;
   cursor: pointer;
 }
-.header-color{
+.header-color {
   background-color: #e3f2fd;
+}
+.active {
+  background: rgb(228, 108, 22);
+  color: white;
+  font-weight: bold;
 }
 
 // .header {
