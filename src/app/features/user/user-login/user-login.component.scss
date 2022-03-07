@@ -1,11 +1,14 @@
 .label-text {
   font-weight: bold;
   font-size: 18px;
-  color: brown;
 }
 .label-text:hover {
-  color: rgb(92, 158, 160);
+  color: rgb(95, 210, 214);
 }
-.btn-login{
-  border-radius: 20px;
+input:hover {
+  border-color: rgb(255, 166, 0);
+  border-width: 2px;
+  transform: scale(1.03);
+  transition: 0.25s;
+  text-align: center;
 }
