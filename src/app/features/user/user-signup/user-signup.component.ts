@@ -24,6 +24,7 @@ export class UserSignupComponent implements OnInit {
         Validators.email,
         Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
       ]),
+      address: new FormControl(null, Validators.required),
       password: new FormControl(null, [
         Validators.required,
         Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,32}$'),
