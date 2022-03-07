@@ -1,3 +1,4 @@
+import { ClothesComponent } from 'src/app/features/customer/clothes/clothes.component';
 import { MobilesComponent } from 'src/app/features/customer/mobiles/mobiles.component';
 import { BooksComponent } from 'src/app/features/customer/books/books.component';
 import { DealsComponent } from 'src/app/features/customer/deals/deals.component';
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'customer-service',
     component: CustomerServiceComponent,
+  },
+  {
+    path: 'clothes',
+    component: ClothesComponent,
   },
   {
     path: '**',
