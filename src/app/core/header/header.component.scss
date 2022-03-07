@@ -7,11 +7,14 @@
   background-color: #e3f2fd;
 }
 .active {
-  background: rgb(228, 108, 22);
-  color: white;
+  background: rgb(255, 255, 255);
+  color: whitesmoke;
   font-weight: bold;
+  border-radius: 7px;
 }
-
+.header-profile{
+  margin-left: 30rem;
+}
 // .header {
 //   position: fixed;
 //   top: 0;

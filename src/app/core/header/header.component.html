@@ -1,28 +1,40 @@
 <div class="row justify-content-center header header-color">
     <div class="col-sm-12">
-        <nav class="navbar">
-            <span class="navbar-item ms-5 text-success">Customer Dashboard</span>
-            <div class="navbar-item m-auto">
-                <button class="btn ms-5 me-5" routerLink="/customer/deal" routerLinkActive="active">Today's
-                    Deal</button>
-                <button class="btn ms-5 me-5">Mobiles</button>
-                <button class="btn ms-5 me-5">Electronics & accessories</button>
-                <button class="btn ms-5 me-5">clothes</button>
-                <button class="btn ms-5 me-5" routerLink="/customer/books" routerLinkActive="active">Bookes</button>
-                <button class="btn ms-5 me-5">Feedback</button>
-                <button class="btn ms-5 me-5">Customer Services</button>
-                <a href=""><img class="profile-image" src="assets/images/user.png" alt="user_profile"></a>
-                <button class="btn">Log In</button>
+        <nav class="navbar navbar navbar-expand-md navbar-light ">
+            <a class="navbar-brand ms-auto">Customer Dashboard</a>
+            <div class="container p-1">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/customer/deal" routerLinkActive="active">
+                            Today's Deal
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mobiles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Electronics & accessories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">clothes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/customer/books" routerLinkActive="active">Bookes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Customer Services</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link"><img class="profile-image" src="assets/images/user.png"
+                                alt="user_profile"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/user/signup" routerLinkActive="active">Register</a>
+                    </li>
+                </ul>
             </div>
         </nav>
-        <!-- <nav class="navbar">
-            <div class="m-auto"> -->
-                <!-- <button class="btn ms-5 me-5">Home</button>
-                <button class="btn ms-5 me-5">Product</button>
-                <button class="btn ms-5 me-5">Feedback</button> -->
-            <!-- </div>
-            <div class="">
-            </div>
-        </nav> -->
     </div>
 </div>
