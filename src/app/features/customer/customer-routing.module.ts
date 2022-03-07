@@ -4,6 +4,7 @@ import { DealsComponent } from 'src/app/features/customer/deals/deals.component'
 import { DashboardComponent } from 'src/app/features/customer/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomerServiceComponent } from 'src/app/features/customer/customer-service/customer-service.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'mobiles',
     component: MobilesComponent,
+  },
+  {
+    path: 'customer-service',
+    component: CustomerServiceComponent,
   },
   {
     path: '**',
