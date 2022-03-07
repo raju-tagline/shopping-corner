@@ -5,9 +5,10 @@ import { CustomerRoutingModule } from 'src/app/features/customer/customer-routin
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DealsComponent } from './deals/deals.component';
 import { BooksComponent } from './books/books.component';
+import { MobilesComponent } from './mobiles/mobiles.component';
 
 @NgModule({
-  declarations: [DashboardComponent, DealsComponent, BooksComponent],
+  declarations: [DashboardComponent, DealsComponent, BooksComponent, MobilesComponent],
   imports: [CommonModule, CustomerRoutingModule, FormsModule],
 })
 export class CustomerModule {}

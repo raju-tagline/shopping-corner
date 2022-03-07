@@ -1,3 +1,4 @@
+import { MobilesComponent } from 'src/app/features/customer/mobiles/mobiles.component';
 import { BooksComponent } from 'src/app/features/customer/books/books.component';
 import { DealsComponent } from 'src/app/features/customer/deals/deals.component';
 import { DashboardComponent } from 'src/app/features/customer/dashboard/dashboard.component';
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'books',
     component: BooksComponent,
+  },
+  {
+    path: 'mobiles',
+    component: MobilesComponent,
   },
   {
     path: '**',
