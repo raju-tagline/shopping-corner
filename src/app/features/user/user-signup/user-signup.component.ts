@@ -1,5 +1,7 @@
+import { DatabaseService } from 'src/app/services/database.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { IUserSignUp } from 'src/app/core/interface/user.interface';
 
 @Component({
   selector: 'shopping-corner-user-signup',
@@ -13,7 +15,7 @@ export class UserSignupComponent implements OnInit {
     { id: 2, genderType: 'Female' },
   ];
 
-  constructor() {}
+  constructor(private databaseService: DatabaseService) {}
 
   ngOnInit(): void {
     this.mySignUpForm = new FormGroup({
@@ -35,6 +37,13 @@ export class UserSignupComponent implements OnInit {
 
   public onSubmi(): void {
     console.log('SIGN UP SUCCESS!');
-    console.log(this.mySignUpForm.value);
+    if (this.mySignUpForm.valid) {
+      const userData: IUserSignUp = this.mySignUpForm.value;
+      this.databaseService.getUserSignUp(userData).subscribe((res) => {
+        console.log('res :>> ', res);
+      });
+    } else {
+      console.log('PLEASE ENTER VALID VALUES!!');
+    }
   }
 }
