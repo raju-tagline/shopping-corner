@@ -1,4 +1,4 @@
-<div class="row justify-content-center header header-color">
+<div class="row justify-content-center header header-color" *ngIf="isCustomer">
     <div class="col-sm-12">
         <nav class="navbar navbar navbar-expand-md navbar-light ">
             <a class="navbar-brand ms-auto">Customer Dashboard</a>
@@ -32,6 +32,34 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/user/signup" routerLinkActive="active">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div class="row justify-content-center header header-color" *ngIf="!isCustomer">
+    <div class="col-sm-12">
+        <nav class="navbar navbar navbar-expand-md navbar-light ">
+            <a class="navbar-brand ms-auto">Admin Dashboard</a>
+            <div class="container p-1">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="#" routerLinkActive="active">ADD PRODUCTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="#" routerLinkActive="active">PRODUCTS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="#" routerLinkActive="active">ORDERS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="#" routerLinkActive="active">USERS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="#" routerLinkActive="active">FEEDBACKS</a>
                     </li>
                 </ul>
             </div>
