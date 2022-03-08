@@ -1,5 +1,6 @@
 import { DatabaseService } from 'src/app/services/database.service';
 import { Component } from '@angular/core';
+import { CartService } from './services/cart.service';
 
 @Component({
   selector: 'shopping-corner-root',
@@ -8,16 +9,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shopping-corner';
-  constructor(private databaseService: DatabaseService) {
-
+  constructor(
+    private databaseService: DatabaseService,
+    private CartService: CartService
+  ) {
     //admin
-    this.databaseService.getUserLogin().subscribe((res) => {
-      console.log('res :>> ', res);
-    })
-
+    // this.databaseService.getUserLogin().subscribe((res) => {
+    //   console.log('res :>> ', res);
+    // });
     //user
-    this.databaseService.get().subscribe((res) => {
-      console.log('res :>> ', res);
-    })
+    // this.databaseService.get().subscribe((res) => {
+    //   console.log('res :>> ', res);
+    // })
   }
 }

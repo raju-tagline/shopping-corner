@@ -37,13 +37,13 @@ export class UserSignupComponent implements OnInit {
 
   public onSubmi(): void {
     console.log('SIGN UP SUCCESS!');
-    if (this.mySignUpForm.valid) {
-      const userData: IUserSignUp = this.mySignUpForm.value;
-      this.databaseService.getUserSignUp(userData).subscribe((res) => {
-        console.log('res :>> ', res);
-      });
-    } else {
-      console.log('PLEASE ENTER VALID VALUES!!');
-    }
+    // if (this.mySignUpForm.valid) {
+    //   const userData: IUserSignUp = this.mySignUpForm.value;
+    //   // this.databaseService.getUserSignUp(userData).subscribe((res) => {
+    //   //   console.log('res :>> ', res);
+    //   // });
+    // } else {
+    //   console.log('PLEASE ENTER VALID VALUES!!');
+    // }
   }
 }
