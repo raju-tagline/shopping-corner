@@ -28,7 +28,7 @@ export class UserLoginComponent implements OnInit {
   }
 
   public onSubmit() {
-    console.log('this.myLoginForm.value :>> ', this.myLoginForm.value);
+    //console.log('this.myLoginForm.value :>> ', this.myLoginForm.value);
     const email = this.myLoginForm.value.email;
     const password = this.myLoginForm.value.password;
     this.authService.login(email, password);

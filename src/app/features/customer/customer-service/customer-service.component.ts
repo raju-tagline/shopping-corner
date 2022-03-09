@@ -22,7 +22,7 @@ export class CustomerServiceComponent implements OnInit {
     });
   }
   public onSumbit(): void {
-    console.log('this.feedBackForm.value :>> ', this.feedBackForm.value);
+    //console.log('this.feedBackForm.value :>> ', this.feedBackForm.value);
     this.feedBackForm.reset();
   }
 }

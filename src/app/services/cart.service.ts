@@ -20,7 +20,7 @@ export class CartService {
       name: 'product1',
       price: 12000,
     };
-    console.log('data :>> ', data);
+    // console.log('data :>> ', data);
     this.basePath.push(data);
   }
 
@@ -34,7 +34,7 @@ export class CartService {
           cartId: key,
         };
       });
-      console.log('allCarts :>> ', allCarts);
+      // console.log('allCarts :>> ', allCarts);
     });
   }
 
@@ -50,7 +50,7 @@ export class CartService {
       name: 'prouct15646 ',
       price: 6666,
     };
-    console.log('data :>> ', data);
+    // console.log('data :>> ', data);
     const basePath = this.db.database.ref('cart/' + '-MxcO_Dk2LoLxIzPR7fd');
     basePath.update(data);
   }

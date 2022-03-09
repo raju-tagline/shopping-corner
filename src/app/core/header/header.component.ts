@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationStart) {
         this.currentRoute = event.url.split(/[?#]/)[0];
-        console.log('this.currentRoute :>> ', this.currentRoute);
+        // console.log('this.currentRoute :>> ', this.currentRoute);
 
         if (this.currentRoute.includes('/customer/')) {
           this.isCustomer = true;
