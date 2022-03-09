@@ -1,2 +1,33 @@
 <shopping-corner-dashboard></shopping-corner-dashboard>
-<p>product-list works!</p>
+<br>
+<div class="row justify-content-center">
+    <div class="col-sm-8 table-responsive">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>P.No</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Product Id</th>
+                    <th>Auther</th>
+                    <th>Description</th>
+                    <th>Action</th>       
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of productList; let i = index;">
+                    <td>{{ i +1 }}</td>
+                    <td> {{ product.name }} </td>
+                    <td> {{ product.price }} </td>
+                    <td> {{ product.key }} </td>
+                    <td> {{ product.auther }} </td>
+                    <td> {{ product.Description }} </td>
+                    <td>
+                        <button class="btn btn-success btn-sm me-3" (click)="editProduct(product.key)">Edit</button>
+                        <button class="btn btn-danger btn-sm" (click)="removeProduct(product.key)">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
