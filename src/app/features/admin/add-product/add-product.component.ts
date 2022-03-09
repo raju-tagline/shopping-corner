@@ -18,6 +18,7 @@ export class AddProductComponent implements OnInit {
       productName: new FormControl(null, Validators.required),
       price: new FormControl(null, [Validators.required]),
       image: new FormControl(null, [Validators.required]),
+      category: new FormControl(null, [Validators.required]),
       description: new FormControl(null, Validators.required),
     });
   }
@@ -27,6 +28,7 @@ export class AddProductComponent implements OnInit {
       productName: this.addProductForm.value.productName,
       price: this.addProductForm.value.price,
       image: this.addProductForm.value.image,
+      category:this.addProductForm.value.category,
       description: this.addProductForm.value.description,
     };
     this.basePath.push(data);
