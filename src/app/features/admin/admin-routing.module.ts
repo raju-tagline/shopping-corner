@@ -7,24 +7,31 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'dashboard',
+    path: '',
     component: DashboardComponent,
+    children: [
+      {
+        path: 'product-list',
+        component: ProductListComponent,
+      },
+      {
+        path: 'customer-order',
+        component: CustomerOrdersComponent,
+      },
+      {
+        path: 'add-product',
+        component: AddProductComponent,
+      },
+      {
+        path: '**',
+        redirectTo: 'product-list',
+      },
+    ],
   },
-  {
-    path: 'product-list',
-    component: ProductListComponent,
-  },
-  {
-    path: 'customer-order',
-    component: CustomerOrdersComponent,
-  },
-  {
-    path: 'add-product',
-    component: AddProductComponent,
-  },
+
   {
     path: '**',
-    redirectTo: 'dashboard',
+    redirectTo: '',
   },
 ];
 
