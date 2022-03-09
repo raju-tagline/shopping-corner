@@ -1,3 +1,26 @@
 <shopping-corner-dashboard></shopping-corner-dashboard>
 <br>
-<p>add-product works!</p>
+<div class="row justify-content-center">
+    <div class="col-4">
+        <form (ngSubmit)="onSumbit()" [formGroup]="addProductForm">
+            <div class="mb-2">
+                <label for="productName">Product Name</label>
+                <input type="text" id="productName" formControlName="productName" class="form-control">
+            </div>
+            <div class="mb-2">
+                <label for="price">Product Price</label>
+                <input type="text" id="price" formControlName="price" class="form-control ">
+            </div>
+            <div class="mb-2">
+                <label for="image">Product Image</label>
+                <input type="text" id="image" formControlName="image" class="form-control ">
+            </div>
+            <div class="mb-2">
+                <label for="description">Produtc Description</label>
+                <textarea rows="2" id="description" formControlName="description" class="form-control"></textarea>
+
+            </div>
+            <button type="submit" class="btn btn-success btn-md" [disabled]="!addProductForm.valid">Add Product</button>
+        </form>
+    </div>
+</div>
