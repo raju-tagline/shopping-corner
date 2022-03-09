@@ -7,7 +7,7 @@ import { NavigationStart, Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  public isCustomer: boolean = true;
+  public isCustomer!: boolean;
   public currentRoute!: string;
 
   constructor(private router: Router) {
@@ -25,18 +25,8 @@ export class HeaderComponent implements OnInit {
           this.isCustomer = false;
         }
 
-        if (this.currentRoute.includes('/login/')) {
-          this.isCustomer = true;
+        if (this.currentRoute.includes('/user/')) {
         }
-        // if (event.url.slice(0, 10) === '/customer/') {
-        //   console.log('CUSTOMER WORKS!!!');
-        // } else if (event.url.slice(0, 6) === '/admin/') {
-        //   console.log('ADMIN WORKS!!');
-        //   // this.isCustomer = false;
-        // } else {
-        //   console.log('LOGIN WORK!!');
-        //   this.isCustomer = true;
-        // }
       }
 
       // if (event instanceof NavigationEnd) {
