@@ -1,3 +1,32 @@
 <shopping-corner-dashboard></shopping-corner-dashboard>
 <br>
-<p>customer-orders works!</p>
+<div class="row justify-content-center">
+    <div class="col-sm-8 table-responsive">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>O.No</th>
+                    <th>Order</th>
+                    <th>Price</th>
+                    <th>Order Id</th>
+                    <th>Time</th>
+                    <th>Customer</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orderList; let i = index;">
+                    <td>{{ i +1 }}</td>
+                    <td> {{ order.name }} </td>
+                    <td> {{ order.price }} </td>
+                    <td> {{ order.key }} </td>
+                    <td> {{ order.time  }} </td>
+                    <td> {{ order.customer }} </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" (click)="cancalOrder(order.key)">Cancal</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
