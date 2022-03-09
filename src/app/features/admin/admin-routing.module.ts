@@ -1,3 +1,4 @@
+import { ProductListComponent } from 'src/app/features/admin/product-list/product-list.component';
 import { DashboardComponent } from 'src/app/features/admin/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,13 +9,17 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
+    path: 'product-list',
+    component: ProductListComponent,
+  },
+  {
     path: '**',
     redirectTo: 'dashboard',
-  }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}
