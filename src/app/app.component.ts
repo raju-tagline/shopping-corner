@@ -12,14 +12,5 @@ export class AppComponent {
   constructor(
     private databaseService: DatabaseService,
     private CartService: CartService
-  ) {
-    //admin
-    // this.databaseService.getUserLogin().subscribe((res) => {
-    //   console.log('res :>> ', res);
-    // });
-    //user
-    // this.databaseService.get().subscribe((res) => {
-    //   console.log('res :>> ', res);
-    // })
-  }
+  ) {}
 }
