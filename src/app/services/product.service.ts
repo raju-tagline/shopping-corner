@@ -13,7 +13,12 @@ export class ProductService {
   /**
    * addProduct
    */
-  public addProduct() {}
+  public addProduct(productValue: any) {
+    return new Promise((resolve, reject) => {
+      this.basePathRef.push(productValue);
+      resolve(productValue);
+    });
+  }
 
   /**
    * getProduct
@@ -36,7 +41,21 @@ export class ProductService {
    * updateProduct
    */
   public updateProduct(key: string, updateProductDetails: any) {
-    const basePath = this.db.database.ref(`${this.basePath}/${key}`);
-    basePath.update(updateProductDetails);
+    return new Promise((resolve,reject) => {
+      const basePath = this.db.database.ref(`${this.basePath}/${key}`);
+      basePath.update(updateProductDetails);
+      resolve(updateProductDetails);
+    });
   }
+
+  /**
+   * removeProduct
+   */
+  public removeProduct(key: string) {
+    return new Promise((resolve, reject) => {
+      const basePath = this.db.database.ref('/products/' + key);
+      resolve(basePath.remove());
+    });
+  }
+
 }

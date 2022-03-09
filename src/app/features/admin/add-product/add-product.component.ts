@@ -1,6 +1,8 @@
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'shopping-corner-add-product',
@@ -12,12 +14,13 @@ export class AddProductComponent implements OnInit {
   public basePath = this.db.database.ref('/products');
   public editableProduct: any = null;
 
-  constructor(private db: AngularFireDatabase) {
+  constructor(
+    private db: AngularFireDatabase,
+    private productService: ProductService,
+    private router:Router
+  ) {
     const tempEditableProduct: any = localStorage.getItem('isEditableProduct');
     this.editableProduct = JSON.parse(tempEditableProduct);
-    console.log('obj :>> ', this.editableProduct);
-    // this.setEditableProductValue();
-    // console.log('localStorage.getItem(isEditableProduct) :>> ', JSON.parse(localStorage.getItem('isEditableProduct')));
   }
 
   ngOnInit(): void {
@@ -37,47 +40,36 @@ export class AddProductComponent implements OnInit {
    * setEditableProductValue
    */
   public setEditableProductValue() {
-   this.addProductForm.setValue({
-      productName: this.editableProduct.productName,
-      price: this.editableProduct.price,
-      image: this.editableProduct.image,
+    const updateProduct = this.addProductForm.setValue({
       category: this.editableProduct.category,
       description: this.editableProduct.description,
+      image: this.editableProduct.image,
+      price: this.editableProduct.price,
+      productName: this.editableProduct.productName,
     });
   }
 
+  //create product
   public createProduct(): void {
-    console.log('createProduct');
-    this.basePath.push(this.addProductForm.value);
+    this.productService.addProduct(this.addProductForm.value);
+    this.router.navigate(['admin/product-list']);
     this.addProductForm.reset();
   }
 
-   public updaterCart(): void {
-    // const data = {
-    //   name: 'prouct15646 ',
-    //   price: 6666,
-    // };
-    // console.log('data :>> ', data);
-    // const basePath = this.db.database.ref('products/' + '-MxcO_Dk2LoLxIzPR7fd');
-    // basePath.update(data);
-  }
-
+  //update product
   public editProduct() {
     const key = this.editableProduct.productId;
-    const basePath = this.db.database.ref('products/' + key);
-    console.log('editProduct');
-    basePath.update(this.editableProduct);
+    this.productService.updateProduct(key, this.addProductForm.value);
     localStorage.removeItem('isEditableProduct');
     this.addProductForm.reset();
-    console.log("PRODUCAT UPDATED SUCCESSFULLY");
+    this.router.navigate(['admin/product-list']);
   }
 
   public onSumbit(): void {
-    console.log('this.editableProduct :>> ', this.editableProduct);
     if (this.editableProduct?.productId) {
       this.editProduct();
     } else {
       this.createProduct();
-    } 
+    }
   }
 }

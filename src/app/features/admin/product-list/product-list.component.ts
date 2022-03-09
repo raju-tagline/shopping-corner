@@ -1,5 +1,7 @@
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'shopping-corner-product-list',
@@ -8,18 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
   public basePath = this.db.database.ref('/products');
-  public productList = [
-    {
-      productId: '',
-      productName: '',
-      price: null,
-      category: '',
-      image: '',
-      description: '',
-    },
-  ];
+  public productList: any = [];
 
-  constructor(private db: AngularFireDatabase) {}
+  constructor(
+    private db: AngularFireDatabase,
+    private router: Router,
+    private productService: ProductService
+  ) {}
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -27,42 +24,20 @@ export class ProductListComponent implements OnInit {
 
   //all product
   public getAllProducts(): void {
-    const cartArrayCheck = [];
-    this.basePath.on('value', (data: any) => {
-      const allCarts = Object.keys(data.val()).map((key) => {
-        return {
-          ...data.val()[key],
-          productId: key,
-        };
-      });
-      this.productList = allCarts;
-      // console.log('this.productList :>> ', this.productList);
-    });
+    this.productService.getProduct().then((res) => (this.productList = res));
   }
-
-  // public updaterCart(): void {
-  //   const data = {
-  //     name: 'prouct15646 ',
-  //     price: 6666,
-  //   };
-  //   // console.log('data :>> ', data);
-  //   const basePath = this.db.database.ref('products/' + '-MxcO_Dk2LoLxIzPR7fd');
-  //   basePath.update(data);
-  // }
 
   //edit update produtc
   public editProduct(product: any): void {
-    // const basePath = this.db.database.ref('products/' + key);
-
+    this.router.navigate(['/admin/add-product']);
     localStorage.setItem('isEditableProduct', JSON.stringify(product));
     console.log('EDIT :>> ', product);
   }
 
   //remove produtc
   public removeProduct(key: string): void {
-    const basePath = this.db.database.ref('/products/' + key);
-    basePath.remove();
+    this.productService.removeProduct(key);
     window.alert('Are you sure you want delete');
-    console.log('REMOVE :>> ', key);
+    this.getAllProducts();
   }
 }
