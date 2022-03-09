@@ -1,3 +1,4 @@
+import { CustomerOrdersComponent } from './customer-orders/customer-orders.component';
 import { ProductListComponent } from 'src/app/features/admin/product-list/product-list.component';
 import { DashboardComponent } from 'src/app/features/admin/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'product-list',
     component: ProductListComponent,
+  },
+  {
+    path: 'customer-order',
+    component: CustomerOrdersComponent,
   },
   {
     path: '**',
