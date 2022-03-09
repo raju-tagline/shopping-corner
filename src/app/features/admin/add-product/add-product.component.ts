@@ -10,8 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class AddProductComponent implements OnInit {
   public addProductForm!: FormGroup;
   public basePath = this.db.database.ref('/products');
+  public editableProduct: any = null;
 
-  constructor(private db: AngularFireDatabase) {}
+  constructor(private db: AngularFireDatabase) {
+    const tempEditableProduct: any = localStorage.getItem('isEditableProduct');
+    this.editableProduct = JSON.parse(tempEditableProduct);
+    console.log('obj :>> ', this.editableProduct);
+    // this.setEditableProductValue();
+    // console.log('localStorage.getItem(isEditableProduct) :>> ', JSON.parse(localStorage.getItem('isEditableProduct')));
+  }
 
   ngOnInit(): void {
     this.addProductForm = new FormGroup({
@@ -21,19 +28,56 @@ export class AddProductComponent implements OnInit {
       category: new FormControl(null, [Validators.required]),
       description: new FormControl(null, Validators.required),
     });
+    if (this.editableProduct) {
+      this.setEditableProductValue();
+    }
   }
 
-  public createCart(): void {
-    const data = {
-      productName: this.addProductForm.value.productName,
-      price: this.addProductForm.value.price,
-      image: this.addProductForm.value.image,
-      category:this.addProductForm.value.category,
-      description: this.addProductForm.value.description,
-    };
-    this.basePath.push(data);
+  /**
+   * setEditableProductValue
+   */
+  public setEditableProductValue() {
+   this.addProductForm.setValue({
+      productName: this.editableProduct.productName,
+      price: this.editableProduct.price,
+      image: this.editableProduct.image,
+      category: this.editableProduct.category,
+      description: this.editableProduct.description,
+    });
   }
+
+  public createProduct(): void {
+    console.log('createProduct');
+    this.basePath.push(this.addProductForm.value);
+    this.addProductForm.reset();
+  }
+
+   public updaterCart(): void {
+    // const data = {
+    //   name: 'prouct15646 ',
+    //   price: 6666,
+    // };
+    // console.log('data :>> ', data);
+    // const basePath = this.db.database.ref('products/' + '-MxcO_Dk2LoLxIzPR7fd');
+    // basePath.update(data);
+  }
+
+  public editProduct() {
+    const key = this.editableProduct.productId;
+    const basePath = this.db.database.ref('products/' + key);
+    console.log('editProduct');
+    basePath.update(this.editableProduct);
+    localStorage.removeItem('isEditableProduct');
+    this.addProductForm.reset();
+    console.log("PRODUCAT UPDATED SUCCESSFULLY");
+  }
+
   public onSumbit(): void {
-    this.createCart();
+    console.log('this.editableProduct :>> ', this.editableProduct);
+    if (this.editableProduct?.productId) {
+      this.editProduct();
+    } else {
+      this.createProduct();
+    } 
   }
 }

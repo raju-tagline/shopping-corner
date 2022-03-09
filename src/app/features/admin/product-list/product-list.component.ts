@@ -1,3 +1,4 @@
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,53 +7,61 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
+  public basePath = this.db.database.ref('/products');
   public productList = [
     {
-      key: 'auther1product1',
-      name: 'product-1',
-      price: 100,
-      auther: 'tester',
-      Description: 'there is the first every product',
-    },
-    {
-      key: 'auther1product2',
-      name: 'product-2',
-      price: 200,
-      auther: 'tester',
-      Description: 'there is the first every product',
-    },
-    {
-      key: 'auther1product3',
-      name: 'product-3',
-      price: 300,
-      auther: 'tester',
-      Description: 'there is the first every product',
-    },
-    {
-      key: 'auther1product4',
-      name: 'product-4',
-      price: 400,
-      auther: 'tester',
-      Description: 'there is the first every product',
-    },
-    {
-      key: 'auther1product5',
-      name: 'product-5',
-      price: 500,
-      auther: 'tester',
-      Description: 'there is the first every product',
+      productId: '',
+      productName: '',
+      price: null,
+      category: '',
+      image: '',
+      description: '',
     },
   ];
 
-  constructor() {}
+  constructor(private db: AngularFireDatabase) {}
 
-  ngOnInit(): void {}
-
-  public editProduct(key: string): void {
-    console.log('EDIT :>> ', key);
+  ngOnInit(): void {
+    this.getAllProducts();
   }
 
+  //all product
+  public getAllProducts(): void {
+    const cartArrayCheck = [];
+    this.basePath.on('value', (data: any) => {
+      const allCarts = Object.keys(data.val()).map((key) => {
+        return {
+          ...data.val()[key],
+          productId: key,
+        };
+      });
+      this.productList = allCarts;
+      // console.log('this.productList :>> ', this.productList);
+    });
+  }
+
+  // public updaterCart(): void {
+  //   const data = {
+  //     name: 'prouct15646 ',
+  //     price: 6666,
+  //   };
+  //   // console.log('data :>> ', data);
+  //   const basePath = this.db.database.ref('products/' + '-MxcO_Dk2LoLxIzPR7fd');
+  //   basePath.update(data);
+  // }
+
+  //edit update produtc
+  public editProduct(product: any): void {
+    // const basePath = this.db.database.ref('products/' + key);
+
+    localStorage.setItem('isEditableProduct', JSON.stringify(product));
+    console.log('EDIT :>> ', product);
+  }
+
+  //remove produtc
   public removeProduct(key: string): void {
+    const basePath = this.db.database.ref('/products/' + key);
+    basePath.remove();
     window.alert('Are you sure you want delete');
     console.log('REMOVE :>> ', key);
   }
