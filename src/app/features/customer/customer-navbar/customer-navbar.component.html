@@ -1,1 +1,36 @@
-<p>customer-navbar works!</p>
+<nav class="navbar navbar navbar-expand-md navbar-light header-color">
+    <a class="navbar-brand ms-auto">Customer Dashboard</a>
+    <div class="container p-1">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/customer/deal" routerLinkActive="active">
+                    Today's Deal
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/customer/mobiles" routerLinkActive="active">Mobiles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="#" routerLinkActive="active">Electronics & accessories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/customer/clothes" routerLinkActive="active">clothes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/customer/books" routerLinkActive="active">Bookes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/customer/customer-service" routerLinkActive="active">Customer
+                    Services</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link"><img class="profile-image" src="assets/images/user.png" alt="user_profile"></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/user/signup" routerLinkActive="active">Register</a>
+            </li>
+        </ul>
+    </div>
+</nav>
