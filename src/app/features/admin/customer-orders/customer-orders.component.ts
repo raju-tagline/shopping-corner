@@ -13,7 +13,7 @@ export class CustomerOrdersComponent implements OnInit {
       name: 'product-1',
       price: 100,
       customer: 'tester',
-      time:this.date,
+      time: this.date,
       Description: 'there is the first every product',
     },
     {
@@ -21,7 +21,7 @@ export class CustomerOrdersComponent implements OnInit {
       name: 'product-2',
       price: 200,
       customer: 'tester',
-      time:this.date,
+      time: this.date,
       Description: 'there is the first every product',
     },
     {
@@ -29,7 +29,7 @@ export class CustomerOrdersComponent implements OnInit {
       name: 'product-3',
       price: 300,
       customer: 'tester',
-      time:this.date,
+      time: this.date,
       Description: 'there is the first every product',
     },
     {
@@ -37,7 +37,7 @@ export class CustomerOrdersComponent implements OnInit {
       name: 'product-4',
       price: 400,
       customer: 'tester',
-      time:this.date,
+      time: this.date,
       Description: 'there is the first every product',
     },
     {
@@ -45,7 +45,7 @@ export class CustomerOrdersComponent implements OnInit {
       name: 'product-5',
       price: 500,
       customer: 'tester',
-      time:this.date,
+      time: this.date,
       Description: 'there is the first every product',
     },
   ];
@@ -54,7 +54,5 @@ export class CustomerOrdersComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public cancalOrder(key: string): void {
-    console.log('key :>> ', key);
-  }
+  public cancalOrder(key: string): void {}
 }

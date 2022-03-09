@@ -31,7 +31,6 @@ export class ProductListComponent implements OnInit {
   public editProduct(product: any): void {
     this.router.navigate(['/admin/add-product']);
     localStorage.setItem('isEditableProduct', JSON.stringify(product));
-    console.log('EDIT :>> ', product);
   }
 
   //remove produtc
