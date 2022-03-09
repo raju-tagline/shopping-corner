@@ -8,6 +8,7 @@ import { BooksComponent } from 'src/app/features/customer/books/books.component'
 import { MobilesComponent } from 'src/app/features/customer/mobiles/mobiles.component';
 import { CustomerServiceComponent } from 'src/app/features/customer/customer-service/customer-service.component';
 import { ClothesComponent } from 'src/app/features/customer/clothes/clothes.component';
+import { CustomerNavbarComponent } from './customer-navbar/customer-navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ClothesComponent } from 'src/app/features/customer/clothes/clothes.comp
     MobilesComponent,
     CustomerServiceComponent,
     ClothesComponent,
+    CustomerNavbarComponent,
   ],
   imports: [
     CommonModule,

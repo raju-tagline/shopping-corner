@@ -9,29 +9,36 @@ import { CustomerServiceComponent } from 'src/app/features/customer/customer-ser
 
 const routes: Routes = [
   {
-    path: 'dashboard',
+    path: '',
     component: DashboardComponent,
+    children: [
+      {
+        path: 'deal',
+        component: DealsComponent,
+      },
+      {
+        path: 'books',
+        component: BooksComponent,
+      },
+      {
+        path: 'mobiles',
+        component: MobilesComponent,
+      },
+      {
+        path: 'customer-service',
+        component: CustomerServiceComponent,
+      },
+      {
+        path: 'clothes',
+        component: ClothesComponent,
+      },
+      {
+        path: '**',
+        redirectTo: 'deal',
+      },
+    ],
   },
-  {
-    path: 'deal',
-    component: DealsComponent,
-  },
-  {
-    path: 'books',
-    component: BooksComponent,
-  },
-  {
-    path: 'mobiles',
-    component: MobilesComponent,
-  },
-  {
-    path: 'customer-service',
-    component: CustomerServiceComponent,
-  },
-  {
-    path: 'clothes',
-    component: ClothesComponent,
-  },
+
   {
     path: '**',
     redirectTo: 'dashboard',
