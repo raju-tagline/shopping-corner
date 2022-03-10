@@ -1,86 +1,29 @@
-
 <hr>
 
 <!-- Books start -->
 <div class="row justify-content-center">
     <div class="col-4">
-        <div class="card mb-3 custome-hover">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="/assets/product-image/Books/book-1.jpg" class="img-fluid w-75 rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Karma- A Yogi's Guide to Crafting Your Destiny | Spirituality,
-                            Self-improvement & Self help books by Sadhguru | Penguin</h5>
-                        <p class="card-text">AUTHER : </p>
-                        <small></small>
-                        <p class="card-footer"> 700 Rupee </p>
-                        <button class="btn btn-primary btn-sm">Add to Cart</button>
+        <ng-container *ngFor="let book of bookProducts">
+            <div class="card mb-3 custome-hover">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img [src]="book.image" class="img-fluid w-75 rounded-start"
+                            alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ book.productName }}</h5>
+                            <p class="card-text">{{ book.description }}</p>
+                            <small></small>
+                            <p class="card-footer"> {{ book.price | number }} </p>
+                            <button class="btn btn-primary btn-sm">Add to Cart</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <br>
-        <div class="card mb-3 custome-hover">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="/assets/product-image/Books/book-2.jpg" class="img-fluid w-75 rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">House of sky and breath</h5>
-                        <p class="card-text">AUTHER : Sarah J. Maas</p>
-                        <small>Bryce Quinlan and Hunt Athalar have made a pact. As they process the events of the Spring
-                            they will keep things .
-                            platonic . until the Solstice. But can they resist when the crackling tension between them
-                            is enough to set the whole of
-                            Crescent City aflame?...</small>
-                        <p class="card-footer"> 700 Rupee </p>
-                        <button class="btn btn-primary btn-sm">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="card mb-3 custome-hover">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="/assets/product-image/Books/book-3.jpg" class="img-fluid w-75 rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">The Complete Novels of Sherlock Holmes</h5>
-                        <p class="card-text">AUTHER : </p>
-                        <small>the scarlet thread of murder running through the colourless skein of life and our duty is
-                            to unravel it and isolate it
-                            and expose every inch of it.?Sherlock Holmes Consulting Detective 221B Baker Street London.
-                            This is where begins a historical partnership between Dr. Watson?the archetypal gentleman
-                            from the Victorian era?and the
-                            eccentric, legendary sleuth, Sherlock Holmes....</small>
-                        <p class="card-footer"> 700 Rupee </p>
-                        <button class="btn btn-primary btn-sm">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="card mb-3 custome-hover">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="/assets/product-image/Books/book-4.jpg" class="img-fluid w-75 rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">The Power of Your Subconscious Mind</h5>
-                        <p class="card-text">AUTHER : </p>
-                        <small></small>
-                        <p class="card-footer"> 700 Rupee </p>
-                        <button class="btn btn-primary btn-sm">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <br>
+        </ng-container>
+
         <br>
     </div>
 </div>
