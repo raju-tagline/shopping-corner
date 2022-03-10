@@ -7,6 +7,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { CustomerOrdersComponent } from './customer-orders/customer-orders.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
     CustomerOrdersComponent,
     AddProductComponent,
     AdminNavbarComponent,
+    CustomerFeedbackComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, FormsModule, ReactiveFormsModule],
 })

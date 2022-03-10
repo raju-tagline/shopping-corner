@@ -1,3 +1,4 @@
+import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback.component';
 import { AddProductComponent } from 'src/app/features/admin/add-product/add-product.component';
 import { CustomerOrdersComponent } from 'src/app/features/admin/customer-orders/customer-orders.component';
 import { ProductListComponent } from 'src/app/features/admin/product-list/product-list.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'add-product',
         component: AddProductComponent,
+      },
+      {
+        path: 'customer-feedback',
+        component: CustomerFeedbackComponent,
       },
       {
         path: '**',
