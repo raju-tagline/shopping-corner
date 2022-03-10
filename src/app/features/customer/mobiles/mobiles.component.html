@@ -82,63 +82,27 @@
 <hr>
 <div class="row justify-content-center">
     <div class="col-6">
-        <!-- mobile -1 -->
-        <div class="card mb-3 card-width custome-hover">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="/assets/product-image/Mobiles/IPhone_5.png" class="img-fluid w-50 rounded-start ms-5"
-                        alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Iphone 5</h5>
-                        <p class="card-text">5s Silver Compatible with iPhone with 8 Mega Pixel Camera (16GB Internal
-                            Memory)</p>
-                        <p class="card-text"> Price <small class="text-info"> ₹ 12,000</small></p>
+        <!-- mobile show start -->
+        <ng-container *ngFor="let mobile of mobileProducts">
+            <div class="card mb-3 card-width custome-hover">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img [src]="mobile.image" class="img-fluid w-50 rounded-start ms-5" alt="...">
                     </div>
-                    <button class="btn btn-primary btn-sm">Add to cart</button>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ mobile.productName }}</h5>
+                            <p class="card-text">{{ mobile.description }}</p>
+                            <p class="card-text"> Price <small class="text-info"> ₹ {{ mobile.price | number }}</small>
+                            </p>
+                        </div>
+                        <button class="btn btn-primary btn-sm">Add to cart</button>
+                    </div>
                 </div>
             </div>
-        </div>
-<br>
-        <!-- mobile-2 -->
-        <div class="card mb-3 card-width custome-hover">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="/assets/product-image/Mobiles/IPhone_6s.png" class="img-fluid w-50 rounded-start ms-5"
-                        alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Iphone 6s</h5>
-                        <p class="card-text">6s Silver Compatible with iPhone with 8 Mega Pixel Camera (16GB Internal
-                            Memory)</p>
-                        <p class="card-text"> Price <small class="text-info"> ₹ 19,000</small></p>
-                    </div>
-                    <button class="btn btn-primary btn-sm">Add to cart</button>
-                </div>
-            </div>
-        </div>
-<br>
-        <!-- mobile-3 -->
-        <div class="card mb-3 card-width custome-hover">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="/assets/product-image/Mobiles/IPhone3G.png" class="img-fluid w-50 rounded-start ms-5"
-                        alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Iphone 3G</h5>
-                        <p class="card-text">3G Silver Compatible with iPhone with 8 Mega Pixel Camera (1GB Internal
-                            Memory)</p>
-                        <p class="card-text"> Price <small class="text-info"> ₹ 5,000</small></p>
-                    </div>
-                    <button class="btn btn-primary btn-sm">Add to cart</button>
-                </div>
-            </div>
-        </div>
-<br>
+            <br>
+        </ng-container>
+        <!-- mobile show ends -->
     </div>
 </div>
 <hr>
