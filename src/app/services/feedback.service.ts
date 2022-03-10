@@ -18,4 +18,31 @@ export class FeedbackService {
       resolve(customerFeedback);
     });
   }
+
+  /**
+   * getFeedback
+   */
+  public getFeedback() {
+    return new Promise((resolve, reject) => {
+      this.basePath.on('value', (data: any) => {
+        const allFeedback = Object.keys(data.val()).map((key) => {
+          return {
+            ...data.val()[key],
+            feedbackId: key,
+          };
+        });
+        resolve(allFeedback);
+      });
+    });
+  }
+
+  /**
+   * removeFeedback
+   */
+  public removeFeedback(key:string) {
+     return new Promise((resolve, reject) => {
+       const basePath = this.db.database.ref('/customer-feedback/' + key);
+       resolve(basePath.remove());
+     });
+  }
 }

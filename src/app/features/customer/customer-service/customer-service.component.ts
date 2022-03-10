@@ -1,3 +1,4 @@
+import { FeedbackService } from './../../../services/feedback.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class CustomerServiceComponent implements OnInit {
   public feedBackForm!: FormGroup;
 
-  constructor() {}
+  constructor(private feedbackService: FeedbackService) {}
 
   ngOnInit(): void {
     this.feedBackForm = new FormGroup({
@@ -22,6 +23,8 @@ export class CustomerServiceComponent implements OnInit {
     });
   }
   public onSumbit(): void {
+    const feedback = this.feedBackForm.value;
+    this.feedbackService.feedback(feedback);
     this.feedBackForm.reset();
   }
 }
