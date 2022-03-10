@@ -45,7 +45,7 @@ export class UserLoginComponent implements OnInit {
 
     this.authService.login(email, password).then((res: any) => {
       let allUserData: any;
-
+      const loginEmail = res.user.multiFactor.user?.email;
       allUserData = this.db.database.ref('/user');
 
       allUserData.on('value', (data: any) => {
@@ -56,7 +56,9 @@ export class UserLoginComponent implements OnInit {
           };
         });
 
-        this.userDetail = this.allUsers.find((e: any) => e.email === email);
+        this.userDetail = this.allUsers.find(
+          (e: any) => e.email === loginEmail
+        );
 
         if (this.userDetail.role === 'customer') {
           localStorage.setItem('customerId', this.userDetail.customer_key);

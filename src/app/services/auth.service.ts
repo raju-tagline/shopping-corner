@@ -9,6 +9,15 @@ export class AuthService {
 
   public login(email: string, password: string): any {
     return this.angularFireAuth.signInWithEmailAndPassword(email, password);
+
+    // return new Promise((resolve, reject) => {
+    //   this.angularFireAuth
+    //     .signInWithEmailAndPassword(email, password)
+    //     .then((res) => {
+    //       console.log('res :>> ', res);
+    //       resolve(res);
+    //     });
+    // });
   }
 
   public logout() {
