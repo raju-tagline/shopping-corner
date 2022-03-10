@@ -96,7 +96,7 @@
                             <p class="card-text"> Price <small class="text-info"> ₹ {{ mobile.price | number }}</small>
                             </p>
                         </div>
-                        <button class="btn btn-primary btn-sm">Add to cart</button>
+                        <button class="btn btn-primary btn-sm" (click)="addToCart(mobile.productId)">Add to cart</button>
                     </div>
                 </div>
             </div>
