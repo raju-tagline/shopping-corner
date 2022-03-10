@@ -10,6 +10,7 @@ import { CustomerServiceComponent } from 'src/app/features/customer/customer-ser
 import { ClothesComponent } from 'src/app/features/customer/clothes/clothes.component';
 import { CustomerNavbarComponent } from './customer-navbar/customer-navbar.component';
 import { ShowProductComponent } from './show-product/show-product.component';
+import { CheckOutComponent } from './check-out/check-out.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ShowProductComponent } from './show-product/show-product.component';
     ClothesComponent,
     CustomerNavbarComponent,
     ShowProductComponent,
+    CheckOutComponent,
   ],
   imports: [
     CommonModule,
