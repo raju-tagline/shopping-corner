@@ -14,7 +14,6 @@ export class AuthService {
     //   this.angularFireAuth
     //     .signInWithEmailAndPassword(email, password)
     //     .then((res) => {
-    //       console.log('res :>> ', res);
     //       resolve(res);
     //     });
     // });
