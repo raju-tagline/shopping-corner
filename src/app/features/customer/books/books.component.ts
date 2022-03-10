@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./books.component.scss'],
 })
 export class BooksComponent implements OnInit {
-  public bookProducts:any=[]
+  public bookProducts: any = [];
 
-  constructor(private productService:ProductService) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.getProducts();
@@ -23,8 +23,6 @@ export class BooksComponent implements OnInit {
       this.bookProducts = products?.filter(
         (product: any) => product.category === 'Books'
       );
-      console.log('products :>> ', products);
-      console.log('this.bookProducts :>> ', this.bookProducts);
     });
   }
 }

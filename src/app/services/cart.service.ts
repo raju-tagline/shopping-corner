@@ -33,7 +33,6 @@ export class CartService {
           cartId: key,
         };
       });
-      // console.log('allCarts :>> ', allCarts);
     });
   }
 

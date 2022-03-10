@@ -7,21 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mobiles.component.scss'],
 })
 export class MobilesComponent implements OnInit {
-  public mobileProducts:any = []
+  public mobileProducts: any = [];
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.getProducts();
-   }
-  
+  }
+
   /**
    * getProducts
    */
   public getProducts() {
-    this.productService.getProduct().then((products:any) => {
-      this.mobileProducts = products?.filter((product:any) => product.category === 'Phones' );
-      console.log('products :>> ', products);
-      console.log('this.mobileProducts :>> ', this.mobileProducts);
-    })
+    this.productService.getProduct().then((products: any) => {
+      this.mobileProducts = products?.filter(
+        (product: any) => product.category === 'Phones'
+      );
+    });
   }
 }

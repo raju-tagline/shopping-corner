@@ -20,8 +20,6 @@ export class ClothesComponent implements OnInit {
       this.clotheProduct = products?.filter(
         (product: any) => product.category === 'Clothe'
       );
-      console.log('products :>> ', products);
-      console.log('this.clotheProduct :>> ', this.clotheProduct);
     });
   }
 }
