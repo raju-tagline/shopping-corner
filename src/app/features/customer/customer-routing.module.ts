@@ -1,3 +1,4 @@
+import { ShowProductComponent } from './show-product/show-product.component';
 import { ClothesComponent } from 'src/app/features/customer/clothes/clothes.component';
 import { MobilesComponent } from 'src/app/features/customer/mobiles/mobiles.component';
 import { BooksComponent } from 'src/app/features/customer/books/books.component';
@@ -13,24 +14,12 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       {
-        path: 'deal',
-        component: DealsComponent,
-      },
-      {
-        path: 'books',
-        component: BooksComponent,
-      },
-      {
-        path: 'mobiles',
-        component: MobilesComponent,
+        path: 'show-product',
+        component: ShowProductComponent,
       },
       {
         path: 'customer-service',
         component: CustomerServiceComponent,
-      },
-      {
-        path: 'clothes',
-        component: ClothesComponent,
       },
       {
         path: '**',

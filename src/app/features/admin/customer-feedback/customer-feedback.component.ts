@@ -21,7 +21,6 @@ export class CustomerFeedbackComponent implements OnInit {
   public getAllFeedback() {
     this.feedbackService.getFeedback().then((res) => {
       this.feedbackList = res;
-      console.log('res :>> ', res);
     });
   }
 

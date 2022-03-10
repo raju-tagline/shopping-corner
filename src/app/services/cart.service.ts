@@ -1,37 +1,46 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  public basePath = this.db.database.ref('/cart');
+  public cartLength$: any = new BehaviorSubject(0);
+  public cartDetails: any = [];
+  public basePath = this.db.database.ref('/carts');
 
   constructor(private db: AngularFireDatabase) {
-    // this.createCart();
     this.getAllCarts();
-    // this.remove();
-    this.updaterCart();
   }
 
   //craete data
-  public createCart(): void {
-    const data = {
-      name: 'product1',
-      price: 12000,
-    };
+  public createCart(data: any): void {
     this.basePath.push(data);
   }
 
+  //craete data
+  public updateCart(key: any, data: any): void {
+    const basePath = this.db.database.ref('/carts/' + key);
+    basePath.update(data);
+  }
+
   //get data
-  public getAllCarts(): void {
-    const cartArrayCheck = [];
-    this.basePath.on('value', (data: any) => {
-      const allCarts = Object.keys(data.val()).map((key) => {
-        return {
-          ...data.val()[key],
-          cartId: key,
-        };
+  public getAllCarts(): any {
+    return new Promise((resolve, reject) => {
+      this.basePath.on('value', (data: any) => {
+        const allCarts = Object.keys(data.val()).map((key) => {
+          return {
+            ...data.val()[key],
+            cartId: key,
+          };
+        });
+
+        this.cartDetails = allCarts?.filter(
+          (cart: any) => cart?.customerId === localStorage.getItem('customerId')
+        );
+        this.cartLength$.next(this.cartDetails.length);
+        resolve(allCarts);
       });
     });
   }
@@ -40,15 +49,5 @@ export class CartService {
   public remove(id: string = '-MxcO_DhbOUdRoO3O-l0') {
     const basePath = this.db.database.ref('/cart/' + id);
     basePath.remove();
-  }
-
-  //update data
-  public updaterCart(): void {
-    const data = {
-      name: 'prouct15646 ',
-      price: 6666,
-    };
-    const basePath = this.db.database.ref('cart/' + '-MxcO_Dk2LoLxIzPR7fd');
-    basePath.update(data);
   }
 }

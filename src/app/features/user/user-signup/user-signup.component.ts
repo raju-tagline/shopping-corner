@@ -31,7 +31,6 @@ export class UserSignupComponent implements OnInit {
         Validators.required,
         Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,32}$'),
       ]),
-      // confirmPassword:new FormControl(null,Validators.required)
     });
   }
 

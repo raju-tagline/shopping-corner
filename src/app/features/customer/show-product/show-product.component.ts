@@ -1,23 +1,42 @@
-import { AddToCartService } from './../../../services/add-to-cart.service';
 import { ProductService } from './../../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
-  selector: 'shopping-corner-mobiles',
-  templateUrl: './mobiles.component.html',
-  styleUrls: ['./mobiles.component.scss'],
+  selector: 'shopping-corner-show-product',
+  templateUrl: './show-product.component.html',
+  styleUrls: ['./show-product.component.scss'],
 })
-export class MobilesComponent implements OnInit {
-  public mobileProducts: any = [];
+export class ShowProductComponent implements OnInit {
+  public allProducts: any = [];
+  public filterProducts: any = [];
   public orderDetails: any = [];
+  public currentSelectedCategory: string = 'Mobile';
+
   constructor(
     private productService: ProductService,
-    private cartService: CartService
+    private cartService: CartService,
+    private customerService: CustomerService
   ) {}
 
   ngOnInit(): void {
     this.getProducts();
+    this.categorySelectionChange();
+  }
+
+  /**
+   * categorySelectionChange
+   */
+  public categorySelectionChange() {
+    this.customerService.currentSelectedCategory$.subscribe(
+      (currentSelectedCategory: string) => {
+        this.filterProducts = this.allProducts.filter(
+          (product: any) => product.category === currentSelectedCategory
+        );
+        this.currentSelectedCategory = currentSelectedCategory;
+      }
+    );
   }
 
   /**
@@ -25,9 +44,8 @@ export class MobilesComponent implements OnInit {
    */
   public getProducts() {
     this.productService.getProduct().then((products: any) => {
-      this.mobileProducts = products?.filter(
-        (product: any) => product.category === 'Phones'
-      );
+      this.allProducts = products;
+      this.categorySelectionChange();
     });
   }
 
@@ -38,8 +56,8 @@ export class MobilesComponent implements OnInit {
     this.cartService.getAllCarts().then((cartList: any) => {
       const userCart = cartList?.find(
         (cart: any) =>
-          cart.productId === productId &&
-          cart.customerId === localStorage.getItem('customerId')
+          cart?.productId === productId &&
+          cart?.customerId === localStorage.getItem('customerId')
       );
       if (userCart) {
         const updatedUserCartDetails = {
@@ -58,6 +76,7 @@ export class MobilesComponent implements OnInit {
         };
         this.cartService.createCart(data);
       }
+      this.cartService.getAllCarts();
     });
   }
 }

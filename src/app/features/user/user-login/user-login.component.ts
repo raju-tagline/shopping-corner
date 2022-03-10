@@ -30,7 +30,7 @@ export class UserLoginComponent implements OnInit {
       ]),
       password: new FormControl(null, [
         Validators.required,
-        // Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,32}$'),
+        Validators.pattern('^(?=.*[0-9]).{6,32}$'),
       ]),
     });
     this.myLoginForm.setValue({
