@@ -11,6 +11,7 @@ import { ClothesComponent } from 'src/app/features/customer/clothes/clothes.comp
 import { CustomerNavbarComponent } from './customer-navbar/customer-navbar.component';
 import { ShowProductComponent } from './show-product/show-product.component';
 import { CheckOutComponent } from './check-out/check-out.component';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CheckOutComponent } from './check-out/check-out.component';
     CustomerNavbarComponent,
     ShowProductComponent,
     CheckOutComponent,
+    CustomerProfileComponent,
   ],
   imports: [
     CommonModule,

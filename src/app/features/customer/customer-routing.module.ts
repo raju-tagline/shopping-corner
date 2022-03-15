@@ -1,9 +1,6 @@
-import { CheckOutComponent } from './check-out/check-out.component';
-import { ShowProductComponent } from './show-product/show-product.component';
-import { ClothesComponent } from 'src/app/features/customer/clothes/clothes.component';
-import { MobilesComponent } from 'src/app/features/customer/mobiles/mobiles.component';
-import { BooksComponent } from 'src/app/features/customer/books/books.component';
-import { DealsComponent } from 'src/app/features/customer/deals/deals.component';
+import { CustomerProfileComponent } from 'src/app/features/customer/customer-profile/customer-profile.component';
+import { CheckOutComponent } from 'src/app/features/customer/check-out/check-out.component';
+import { ShowProductComponent } from 'src/app/features/customer/show-product/show-product.component';
 import { DashboardComponent } from 'src/app/features/customer/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -25,6 +22,10 @@ const routes: Routes = [
       {
         path: 'check-out',
         component: CheckOutComponent,
+      },
+      {
+        path: 'profile',
+        component: CustomerProfileComponent,
       },
       {
         path: '**',
