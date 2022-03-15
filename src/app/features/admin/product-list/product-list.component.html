@@ -17,7 +17,7 @@
                 <tr *ngFor="let product of productList; let i = index;">
                     <td>{{ i +1 }}</td>
                     <td> {{ product.productName }} </td>
-                    <td> {{ product.price }} </td>
+                    <td> {{ product.price | number }} </td>
                     <td> {{ product.category }} </td>
                     <td> <img src="{{ product.image }}" class="product-img" alt="{{ product.image }}"> </td>
                     <td> {{ product.description }} </td>
