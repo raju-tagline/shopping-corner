@@ -12,6 +12,7 @@ export class ShowProductComponent implements OnInit {
   public allProducts: any = [];
   public filterProducts: any = [];
   public orderDetails: any = [];
+  public userCartList: any = [];
   public currentSelectedCategory: string = 'Mobile';
 
   constructor(
@@ -59,6 +60,7 @@ export class ShowProductComponent implements OnInit {
           cart?.productId === productId &&
           cart?.customerId === localStorage.getItem('customerId')
       );
+      this.cartService.cartDetail$.next(cartList);
       if (userCart) {
         const updatedUserCartDetails = {
           ...userCart,

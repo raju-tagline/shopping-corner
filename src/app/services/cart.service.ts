@@ -8,6 +8,8 @@ import { BehaviorSubject } from 'rxjs';
 export class CartService {
   public cartLength$: any = new BehaviorSubject(0);
   public cartDetails: any = [];
+  public cartDetail$: any = new BehaviorSubject(0);
+  public cartInfo$: any = new BehaviorSubject(0);
   public basePath = this.db.database.ref('/carts');
 
   constructor(private db: AngularFireDatabase) {
@@ -35,7 +37,6 @@ export class CartService {
             cartId: key,
           };
         });
-
         this.cartDetails = allCarts?.filter(
           (cart: any) => cart?.customerId === localStorage.getItem('customerId')
         );

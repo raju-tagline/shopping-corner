@@ -38,6 +38,23 @@ export class ProductService {
   }
 
   /**
+   * getProductDetail
+   */
+  public getProductDetail(productKey:string) {
+    return new Promise((resolve, reject) => {
+      this.basePathRef.on('value', (data: any) => {
+        const allProductList = Object.keys(data.val()).map((key) => {
+          return {
+            ...data.val()[key],
+            productId: productKey,
+          };
+        });
+        resolve(allProductList);
+      });
+    });
+  }
+
+  /**
    * updateProduct
    */
   public updateProduct(key: string, updateProductDetails: any) {

@@ -1,1 +1,73 @@
-<p>check-out works!</p>
+<br>
+<!-- <div>
+    <div *ngFor="let cart of cartList; let i = index;">
+        <td>{{ i+1 }}</td>
+        <hr>
+        <td> CART ID :  {{ cart.cartId }} </td> <br>
+        <td> CUSTOMER ID : {{ cart.customerId }} </td> <br>
+        <td> PRODUCT ID : {{ cart.productId }} </td> <br>
+        <td> QTY : {{ cart.qty }} </td> <br>
+    </div>
+</div> -->
+
+<hr>
+<!-- <p>{{ cartIdData | json }}</p> -->
+
+<hr>
+
+
+<!-- <div>
+    <div *ngFor="let p of cartIdData">
+        <td> {{ p.category }} </td>
+        <td> {{ p.description }} </td>
+        <td> {{ p.image }} </td>
+        <td> {{ p.price }} </td>
+        <td> {{ p.productId }} </td>
+        <td> {{ p.productName }} </td>
+    </div>
+</div> -->
+
+
+<br>
+<div class="row justify-content-center">
+    <div class="col-sm-8 table-responsive">
+        <table class="col-sm-8 table table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <!-- <th>Action</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of cartIdData; let i = index;">
+                    <td>{{ i +1 }}</td>
+                    <td> <img [src]="p.image" class="img-fluid w-25" alt=""> </td>
+                    <td> {{ p.price | number}} </td>
+                    <td> {{ p.productName }} </td>
+                    <td> {{ p.qty }} </td>
+                    <!-- <td>
+                        <button class="btn btn-danger btn-sm"
+                            (click)="removeFeedback(feedback.feedbackId)">Remove</button>
+                    </td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br><br>
+
+
+
+<!-- <div>
+    {{ cartList | json }}
+</div>
+
+<div>
+    {{ cartIdData | json }}
+</div> -->
+
+<!-- {{ cartList | json }} -->
