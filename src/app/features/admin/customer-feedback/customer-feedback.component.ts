@@ -28,7 +28,7 @@ export class CustomerFeedbackComponent implements OnInit {
    * removeFeedback
    */
   public removeFeedback(feedId: string) {
-    this.feedbackService.removeFeedback(feedId)
+    this.feedbackService.removeFeedback(feedId);
     this.getAllFeedback();
   }
 }

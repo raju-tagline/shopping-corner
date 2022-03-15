@@ -24,10 +24,17 @@ export class CheckOutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.showAllProduct();
+  }
+
+  /**
+   * showAllProduct
+   */
+  public showAllProduct() {
     this.cartService.getAllCarts().then((res: any) => {
       this.cartList = res;
       this.cartList.map((res: any) => {
-        console.log('res?.qty :>> ', res?.qty);
+        // console.log('res?.qty :>> ', res?.qty);
       });
     });
 
@@ -37,11 +44,20 @@ export class CheckOutComponent implements OnInit {
         this.cartIdData.push(
           this.cartArr.find(
             (product: any) => element.productId === product.productId
-          ), 
-          { qty: element.qty }
+          )
+          // { qty: element.qty }
         );
       });
     });
+  }
+
+  /**
+   * removeProduct(p.id)
+   */
+  public removeProduct(id: string) {
+    this.cartList.pop(id);
+    console.log('id :>> ', id);
+    this.cartService.removeCart(id);
   }
 
   // /**

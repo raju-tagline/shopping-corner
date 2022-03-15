@@ -39,7 +39,7 @@
                     <th>Price</th>
                     <th>Product Name</th>
                     <th>Quantity</th>
-                    <!-- <th>Action</th> -->
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,10 +49,9 @@
                     <td> {{ p.price | number}} </td>
                     <td> {{ p.productName }} </td>
                     <td> {{ p.qty }} </td>
-                    <!-- <td>
-                        <button class="btn btn-danger btn-sm"
-                            (click)="removeFeedback(feedback.feedbackId)">Remove</button>
-                    </td> -->
+                    <td>
+                        <button class="btn btn-danger btn-sm" (click)="removeProduct(p.productId)">Remove</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

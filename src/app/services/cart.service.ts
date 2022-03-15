@@ -47,8 +47,12 @@ export class CartService {
   }
 
   //remove data
-  public remove(id: string = '-MxcO_DhbOUdRoO3O-l0') {
-    const basePath = this.db.database.ref('/cart/' + id);
-    basePath.remove();
+  public removeCart(key: string) {
+    
+    return new Promise((resolve, reject) => {
+      const basePath = this.db.database.ref('/carts/' + key);
+      console.log('key :>> ', key);
+      resolve(basePath.remove());
+    });
   }
 }
