@@ -1,43 +1,42 @@
-<nav class="navbar navbar navbar-expand-md navbar-light header-color">
-    <a class="navbar-brand ms-auto">Customer Dashboard</a>
-    <div class="container p-1">
-        <ul class="navbar-nav mr-auto">
-            <!-- <li class="nav-item">
-                <a class="nav-link" routerLink="/customer/deal" routerLinkActive="active">
-                    Today's Deal
-                </a>
-            </li> -->
-            <li class="nav-item">
-                <a class="nav-link" (click)="filterableCategory('mobile')" routerLinkActive="active">Mobiles</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" (click)="filterableCategory('cloth')" routerLinkActive="active">clothes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" (click)="filterableCategory('book')" routerLinkActive="active">Bookes</a>
-            </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" routerLink="/customer/customer-service" routerLinkActive="active">Customer
-                    Services</a>
-            </li> -->
-        </ul>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="text-black m-2" routerLink="/customer/profile"><i class="fa fa-user fa-2x" aria-hidden="true"></i></a>
-            </li>
-            <li class="nav-item position-relative">
-                <a class="text-black m-2" routerLink="/customer/check-out" >
-                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true">
-                        <span
-                            class="position-absolute top-0 start-100 translate-middle p-2 bg-primary border border-light rounded-circle">
-                            <span class="">{{cartLength}}</span>
-                        </span>
-                    </i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="#" routerLinkActive="active" (click)="logOut()">LOGOUT</a>
-            </li>
-        </ul>
+<header id="header" class="header">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+        <a class="logo d-flex align-items-center">
+            <!-- <img src="assets/img/logo.png" alt=""> -->
+            <span>Shopping Corner</span>
+        </a>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <!-- <li><a class="nav-link scrollto active" >Home</a></li> -->
+                <li><a class="nav-link scrollto" (click)="filterableCategory('mobile')"
+                        routerLinkActive="active">Mobile</a></li>
+                <li><a class="nav-link scrollto" (click)="filterableCategory('cloth')"
+                        routerLinkActive="active">Cloth</a></li>
+                <li><a class="nav-link scrollto" (click)="filterableCategory('Books')"
+                        routerLinkActive="active">Books</a></li>
+
+                <li><a>Blog</a></li>
+                <li><a class="nav-link scrollto" routerLink="/customer/customer-service"
+                        routerLinkActive="active">Customer Feedback</a></li>
+                <li>
+                    <a class="text-black" routerLink="/customer/profile"><i class="fa fa-user fa-2x"
+                            aria-hidden="true"></i></a>
+                </li>
+                <li class="position-relative">
+                    <a class="nav-link scrollto" routerLink="/customer/check-out">
+                        <i class="fa fa-shopping-cart fa-2x" aria-hidden="true">
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle p-2 bg-primary border border-light rounded-circle">
+                                <span class="">{{cartLength}}</span>
+                            </span>
+                        </i>
+                    </a>
+                </li>
+                <li><a class="nav-link scrollto" routerLinkActive="active" (click)="logOut()">Log Out</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
     </div>
-</nav>
+</header><!-- End Header -->
