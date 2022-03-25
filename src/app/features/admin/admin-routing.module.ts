@@ -5,6 +5,7 @@ import { ProductListComponent } from 'src/app/features/admin/product-list/produc
 import { DashboardComponent } from 'src/app/features/admin/dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'add-product',
         component: AddProductComponent,
+      },
+      {
+        path: 'customer-profiles',
+        component: CustomerProfileComponent,
       },
       {
         path: 'customer-feedback',

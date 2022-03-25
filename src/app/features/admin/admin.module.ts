@@ -8,6 +8,7 @@ import { CustomerOrdersComponent } from './customer-orders/customer-orders.compo
 import { AddProductComponent } from './add-product/add-product.component';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback.component';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CustomerFeedbackComponent } from './customer-feedback/customer-feedback
     AddProductComponent,
     AdminNavbarComponent,
     CustomerFeedbackComponent,
+    CustomerProfileComponent,
   ],
   imports: [CommonModule, AdminRoutingModule, FormsModule, ReactiveFormsModule],
 })
