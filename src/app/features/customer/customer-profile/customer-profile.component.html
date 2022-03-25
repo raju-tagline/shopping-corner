@@ -1,4 +1,4 @@
-<div class="row jusrify-content-center">
+<div class="row justify-content-center" *ngIf="isCustomerInfo">
     <div class="col-md-8">
         <form (ngSubmit)="onSumbit()" [formGroup]="userProfileForm">
             <div class="mb-2">
@@ -14,12 +14,12 @@
                 <input type="text" id="userGender" formControlName="gender" class="form-control ">
             </div>
             <div class="mb-2">
-                <label for="address">Address</label>
-                <input type="text" id="address" formControlName="address" class="form-control ">
-                <input type="text" id="address" formControlName="address" class="form-control ">
-                <input type="text" id="address" formControlName="address" class="form-control ">
+                <ng-container *ngFor="let address of userAddress">
+                    <label for="address">Address</label>
+                <input type="text" id="address" class="form-control" value="Houser No :{{address.house_no}},City :{{address.city}},State :{{ address.state }},ZipCode :{{ address.zipcode }} ">
+                </ng-container>
             </div>
-            <button type="submit" class="btn btn-success btn-md" [disabled]="!userProfileForm.valid">Submit</button>
+            <!-- <button type="submit" class="btn btn-success btn-md" [disabled]="!userProfileForm.valid">Submit</button> -->
         </form>
         <!-- <form action="">
             <label for="userName">Name</label>

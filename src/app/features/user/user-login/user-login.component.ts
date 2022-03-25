@@ -33,10 +33,6 @@ export class UserLoginComponent implements OnInit {
         Validators.pattern('^(?=.*[0-9]).{6,32}$'),
       ]),
     });
-    this.myLoginForm.setValue({
-      email: 'admin.raju@gmail.com',
-      password: '123456',
-    });
   }
 
   public onSubmit() {

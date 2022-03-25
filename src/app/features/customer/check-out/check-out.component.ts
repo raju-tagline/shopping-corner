@@ -15,6 +15,7 @@ export class CheckOutComponent implements OnInit {
   public cartArr: any = [];
   public qtyArr: any = [];
   public cartDataList: any = [];
+  public isCheckOut: boolean = false;
 
   constructor(
     private cartService: CartService,
@@ -43,7 +44,8 @@ export class CheckOutComponent implements OnInit {
       this.cartList.forEach((element: any) => {
         this.cartIdData.push(
           this.cartArr.find(
-            (product: any) => element.productId === product.productId
+            (product: any) => element.productId === product.productId,
+            this.isCheckOut = true
           )
           // { qty: element.qty }
         );
