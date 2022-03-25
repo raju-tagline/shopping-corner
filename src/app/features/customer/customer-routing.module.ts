@@ -13,12 +13,12 @@ const routes: Routes = [
     component: DashboardComponent,
     children: [
       {
-        path: 'deal',
-        component: DealsComponent,
-      },
-      {
         path: 'show-product',
         component: ShowProductComponent,
+      },
+      {
+        path: 'deal',
+        component: DealsComponent,
       },
       {
         path: 'customer-service',
@@ -34,7 +34,7 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'deal',
+        redirectTo: 'show-product',
       },
     ],
   },

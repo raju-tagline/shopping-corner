@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FeedbackService } from './../../../services/feedback.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,10 @@ import { Component, OnInit } from '@angular/core';
 export class CustomerServiceComponent implements OnInit {
   public feedBackForm!: FormGroup;
 
-  constructor(private feedbackService: FeedbackService) {}
+  constructor(
+    private feedbackService: FeedbackService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.feedBackForm = new FormGroup({
@@ -23,8 +27,14 @@ export class CustomerServiceComponent implements OnInit {
     });
   }
   public onSumbit(): void {
-    const feedback = this.feedBackForm.value;
-    this.feedbackService.feedback(feedback);
-    this.feedBackForm.reset();
+    if (this.feedBackForm.valid) {
+      const feedback = this.feedBackForm.value;
+      this.feedbackService.feedback(feedback);
+      this.feedBackForm.reset();
+      this.router.navigate(['/customer/deal']);
+      alert('Thanks For Feedback');
+    } else {
+      alert('Please enter valid value !');
+    }
   }
 }

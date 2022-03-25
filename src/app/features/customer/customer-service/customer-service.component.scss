@@ -6,16 +6,12 @@
   color: rgb(95, 210, 214);
 }
 input:hover {
-  border-color: rgb(255, 166, 0);
-  border-width: 2px;
-  transform: scale(1.03);
-  transition: 0.25s;
-  text-align: center;
+  border-color: rgb(86, 0, 199);
+  border-width: 1.2px;
+  transition: 0.1s;
 }
 textarea:hover {
-  border-color: rgb(255, 166, 0);
-  border-width: 2px;
-  transform: scale(1.03);
+  border-color: rgb(86, 0, 199);
+  border-width: 1.2px;
   transition: 0.25s;
-  text-align: center;
 }
