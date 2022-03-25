@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProfileService {
   public basePath = this.db.database.ref('/user');
 
-
-  constructor(private db: AngularFireDatabase) { 
+  constructor(private db: AngularFireDatabase) {
     // this.getUserInfo();
   }
 
@@ -21,9 +20,8 @@ export class ProfileService {
             userId: key,
           };
         });
-        resolve(userProfile)
+        resolve(userProfile);
       });
     });
   }
-
 }

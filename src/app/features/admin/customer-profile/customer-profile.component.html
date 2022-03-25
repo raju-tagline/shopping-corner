@@ -1,1 +1,35 @@
-<p>customer-profile works!</p>
+<div class="row justify-content-center mt-3" *ngIf="isUser">
+  <div class="col-10">
+    <table class="table table-hover table-responsive">
+      <thead class="table-dark">
+        <tr>
+          <th>No.</th>
+          <th>Address</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th>Name</th>
+          <th>Role</th>
+          <th>UserId</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let user of userArr; let i = index">
+          <tr>
+            <td>{{ i + 1 }}</td>
+            <td>
+              <p class="address-text">City :{{ user?.address?.city }},</p>
+              <p class="address-text">House :{{ user?.address?.house_no }},</p>
+              <p class="address-text">State :{{ user?.address?.state }},</p>
+              <p class="address-text">Zip :{{ user?.address?.zipcode }}</p>
+            </td>
+            <td>{{ user?.email }}</td>
+            <td>{{ user?.gender }}</td>
+            <td>{{ user?.name }}</td>
+            <td class="text-primary">{{ user?.role }}</td>
+            <td>{{ user?.userId }}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

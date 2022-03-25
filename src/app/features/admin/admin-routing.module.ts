@@ -25,7 +25,7 @@ const routes: Routes = [
         component: AddProductComponent,
       },
       {
-        path: 'customer-profiles',
+        path: 'users',
         component: CustomerProfileComponent,
       },
       {
