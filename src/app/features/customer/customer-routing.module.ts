@@ -1,3 +1,4 @@
+import { DealsComponent } from 'src/app/features/customer/deals/deals.component';
 import { CustomerProfileComponent } from 'src/app/features/customer/customer-profile/customer-profile.component';
 import { CheckOutComponent } from 'src/app/features/customer/check-out/check-out.component';
 import { ShowProductComponent } from 'src/app/features/customer/show-product/show-product.component';
@@ -11,6 +12,10 @@ const routes: Routes = [
     path: '',
     component: DashboardComponent,
     children: [
+      {
+        path: 'deal',
+        component: DealsComponent,
+      },
       {
         path: 'show-product',
         component: ShowProductComponent,
@@ -29,7 +34,7 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'show-product',
+        redirectTo: 'deal',
       },
     ],
   },
