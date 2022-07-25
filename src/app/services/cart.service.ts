@@ -13,7 +13,6 @@ export class CartService {
   public basePath = this.db.database.ref('/carts');
 
   constructor(private db: AngularFireDatabase) {
-    this.getAllCarts();
   }
 
   //craete data
@@ -48,10 +47,8 @@ export class CartService {
 
   //remove data
   public removeCart(key: string) {
-    
     return new Promise((resolve, reject) => {
       const basePath = this.db.database.ref('/carts/' + key);
-      console.log('key :>> ', key);
       resolve(basePath.remove());
     });
   }

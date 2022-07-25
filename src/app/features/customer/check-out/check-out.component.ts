@@ -9,7 +9,6 @@ import { concat } from 'rxjs';
   styleUrls: ['./check-out.component.scss'],
 })
 export class CheckOutComponent implements OnInit {
-  public cartList: any = [];
   public productId!: string;
   public cartIdData: any = [];
   public cartArr: any = [];
@@ -32,24 +31,22 @@ export class CheckOutComponent implements OnInit {
    * showAllProduct
    */
   public showAllProduct() {
-    this.cartService.getAllCarts().then((res: any) => {
-      this.cartList = res;
-      this.cartList.map((res: any) => {
-        // console.log('res?.qty :>> ', res?.qty);
-      });
-    });
-
-    this.productService.getProduct().then((products: any) => {
-      this.cartArr = products;
-      this.cartList.forEach((element: any) => {
-        this.cartIdData.push(
-          this.cartArr.find(
-            (product: any) => element.productId === product.productId,
-            this.isCheckOut = true
-          )
-          // { qty: element.qty }
-        );
-      });
+    this.cartService.getAllCarts().then((resp: any) => {
+      if (resp) {
+        this.productService.getProduct().then((products: any) => {
+          resp.forEach((element: any) => {
+            const data: any = products.find(
+              (product: any) => element.productId === product.productId,
+              (this.isCheckOut = true)
+            );
+            const cartList = {
+              ...data,
+              qty: element.qty,
+            };
+            this.cartIdData.push(cartList);
+          });
+        });
+      }
     });
   }
 
@@ -57,21 +54,8 @@ export class CheckOutComponent implements OnInit {
    * removeProduct(p.id)
    */
   public removeProduct(id: string) {
-    this.cartList.pop(id);
-    console.log('id :>> ', id);
     this.cartService.removeCart(id);
+    // const index = this.cartIdData.findIndex((ele: any) => ele.productId === id);
+    // this.cartIdData.slice(index, 1);
   }
-
-  // /**
-  //  * cartData
-  //  */
-  // public cartData() {
-  //   this.cartService.cartInfo$.subscribe((productId: any) => {
-  //     this.productService.getProduct().then((products: any) => {
-  //       this.cartIdData = products?.filter((product: any) => {
-  //         product.productId === productId;
-  //       });
-  //     });
-  //   });
-  // }
 }

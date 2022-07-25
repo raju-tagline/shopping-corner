@@ -14,7 +14,6 @@ export class DealsComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProduct().then((res) => {
       this.allProductDetails = res;
-      console.log('TODAY RESPONSE :>> ', res);
     });
   }
 }

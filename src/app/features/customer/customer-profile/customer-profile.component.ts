@@ -30,7 +30,6 @@ export class CustomerProfileComponent implements OnInit {
    */
   public userInfo() {
     this.profileService.getUserInfo().then((res: any) => {
-      console.log('res[1]?.address :>> ', res[1]?.address);
       const address = {
         city: res[1]?.address?.city,
         house_no: res[1]?.address?.house_no,
